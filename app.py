@@ -42,57 +42,120 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    if event.message.text == '追蹤中職缺':
+        follow()
+    
+    
+
+def follow():
     message = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
             columns=[
                 CarouselColumn(
-                    thumbnail_image_url='https://example.com/item1.jpg',
-                    title='this is menu1',
-                    text='description1',
+                    title='誠徵java工程師1名',
+                    text='地點：捷運市政府站附近\n（追蹤中）',
                     actions=[
                         PostbackAction(
-                            label='postback1',
-                            display_text='postback text1',
+                            label='直接應徵',
+                            display_text='履歷投遞...',
                             data='action=buy&itemid=1'
                         ),
                         MessageAction(
-                            label='message1',
-                            text='message text1'
+                            label='線上真人諮詢',
+                            text='線上真人諮詢'
                         ),
-                        URIAction(
-                            label='uri1',
-                            uri='http://example.com/1'
-                        )
+                        PostbackAction(
+                            label='取消追蹤',
+                            display_text='取消追蹤',
+                            data='action=buy&itemid=1'
+                        ),
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://example.com/item2.jpg',
-                    title='this is menu2',
-                    text='description2',
+                    title='誠徵 資深半導體工程師',
+                    text='地點：桃園觀音\n（追蹤中）',
                     actions=[
                         PostbackAction(
-                            label='postback2',
-                            display_text='postback text2',
-                            data='action=buy&itemid=2'
+                            label='直接應徵',
+                            display_text='履歷投遞...',
+                            data='action=buy&itemid=1'
                         ),
                         MessageAction(
-                            label='message2',
-                            text='message text2'
+                            label='線上真人諮詢',
+                            text='線上真人諮詢'
                         ),
-                        URIAction(
-                            label='uri2',
-                            uri='http://example.com/2'
-                        )
+                        PostbackAction(
+                            label='取消追蹤',
+                            display_text='取消追蹤',
+                            data='action=buy&itemid=1'
+                        ),
                     ]
-                )
+                ),
+                CarouselColumn(
+                    title='誠徵 資深半自動工程師',
+                    text='地點：信義101\n（FA聯繫中）',
+                    actions=[
+                        PostbackAction(
+                            label='直接應徵',
+                            display_text='履歷投遞...',
+                            data='action=buy&itemid=1'
+                        ),
+                        MessageAction(
+                            label='線上真人諮詢',
+                            text='線上真人諮詢'
+                        ),
+                        PostbackAction(
+                            label='取消追蹤',
+                            display_text='取消追蹤',
+                            data='action=buy&itemid=1'
+                        ),
+                    ]
+                ),
+                CarouselColumn(
+                    title='誠徵 資深java軟體工程師',
+                    text='地點：松山區',
+                    actions=[
+                        PostbackAction(
+                            label='直接應徵',
+                            display_text='履歷投遞...',
+                            data='action=buy&itemid=1'
+                        ),
+                        MessageAction(
+                            label='線上真人諮詢',
+                            text='線上真人諮詢'
+                        ),
+                        PostbackAction(
+                            label='取消追蹤',
+                            display_text='取消追蹤',
+                            data='action=buy&itemid=1'
+                        ),
+                    ]
+                ),
+                CarouselColumn(
+                    title='誠徵 網路管理員',
+                    text='地點：新北市',
+                    actions=[
+                        PostbackAction(
+                            label='直接應徵',
+                            display_text='履歷投遞...',
+                            data='action=buy&itemid=1'
+                        ),
+                        MessageAction(
+                            label='線上真人諮詢',
+                            text='線上真人諮詢'
+                        ),
+                        PostbackAction(
+                            label='取消追蹤',
+                            display_text='取消追蹤',
+                            data='action=buy&itemid=1'
+                        ),
+                    ]
+                ),
             ]
         )
     )
     line_bot_api.reply_message(event.reply_token, message)
-
-def follow():
-    return
 
 
 if __name__ == "__main__":
