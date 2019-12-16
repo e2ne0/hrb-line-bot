@@ -43,7 +43,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.message.text == '追蹤中職缺':
-        follow()
+        line_bot_api.reply_message(event.reply_token, follow())
     
     
 
@@ -155,7 +155,8 @@ def follow():
             ]
         )
     )
-    line_bot_api.reply_message(event.reply_token, message)
+    return message
+    
 
 
 if __name__ == "__main__":
