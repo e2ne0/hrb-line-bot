@@ -45,7 +45,8 @@ def handle_message(event):
     if event.message.text == '追蹤中職缺':
         line_bot_api.reply_message(event.reply_token, follow())
     
-    
+    if event.message.texr == '線上真人諮詢':
+        line_bot_api.reply_message(event.reply_token, onlineHumanContact())
 
 def follow():
     message = TemplateSendMessage(
@@ -157,6 +158,9 @@ def follow():
     )
     return message
     
+def onlineHumanContact():
+    message = TextSendMessage('後台建置中...\n稍待片刻，將由相關人士與您聯絡')
+    return message
 
 
 if __name__ == "__main__":
