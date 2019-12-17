@@ -169,7 +169,7 @@ def onlineHumanContact():
     return message
 
 def myResume():
-    message = CarouselColumn(
+    message = ButtonsTemplate(
         title='我的履歷',
         text='選擇新增一份律例或挑選現有的履歷',
         actions=[
