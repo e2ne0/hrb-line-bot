@@ -199,27 +199,27 @@ def viewMyResume():
                     actions=URIAction(
                         label='編輯履歷',
                         uri='https://linebot-human-resource.netlify.com/create-resume'
-                        )
-                    ),
+                    )
+                ),
                 CarouselColumn(
                     title='履歷2',
                     text='Lorem lpsum is simply dummy test',
                     actions=URIAction(
                         label='編輯履歷',
                         uri='https://linebot-human-resource.netlify.com/create-resume'
-                    	)
-                	),
+                    )
+                ),
                 CarouselColumn(
                     title='履歷3',
                     text='Lorem lpsum is simply dummy test',
                     actions=URIAction(
                         label='編輯履歷',
                         uri='https://linebot-human-resource.netlify.com/create-resume'
-                    	)
-                	)
-            	]
-        	)
-    	)
+                    )
+                )
+            ]
+        )
+    )
     return message
 
 if __name__ == "__main__":
