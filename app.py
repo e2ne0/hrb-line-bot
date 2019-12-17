@@ -169,19 +169,22 @@ def onlineHumanContact():
     return message
 
 def myResume():
-    message = ButtonsTemplate(
-        title='我的履歷',
-        text='選擇新增一份律例或挑選現有的履歷',
-        actions=[
-            URIAction(
-                label='新增新的一份履歷',
-                uri='https://linebot-human-resource.netlify.com/create-resume'
-            ),
-            MessageAction(
-                label='瀏覽履歷庫',
-                text='瀏覽履歷庫'
-            ),
-        ]
+    message = TemplateSendMessage(
+		alt_text='Carousel template',
+        template=ButtonsTemplate(
+            title='我的履歷',
+            text='選擇新增一份律例或挑選現有的履歷',
+            actions=[
+                URIAction(
+                    label='新增新的一份履歷',
+                    uri='https://linebot-human-resource.netlify.com/create-resume'
+                ),
+                MessageAction(
+                    label='瀏覽履歷庫',
+                    text='瀏覽履歷庫'
+                ),
+            ]
+        )
     )
     return message
 
