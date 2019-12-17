@@ -27,7 +27,7 @@ rich_menu_to_create = RichMenu(
         action=URIAction(label='Go to line.me', uri='https://line.me'))]
 )
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
-print(rich_menu_id)
+rich_menu = line_bot_api.get_rich_menu(rich_menu_id)
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
