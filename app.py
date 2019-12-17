@@ -9,6 +9,10 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
+import requests
+import json
+
+
 app = Flask(__name__)
 
 # Channel Access Token
@@ -17,17 +21,45 @@ line_bot_api = LineBotApi(
 # Channel Secret
 handler = WebhookHandler('b28c6adb66067dad7c87c7853cfb32ea')
 
-rich_menu_to_create = RichMenu(
-    size=RichMenuSize(width=2500, height=843),
-    selected=False,
-    name="Nice richmenu",
-    chat_bar_text="Tap here",
-    areas=[RichMenuArea(
-        bounds=RichMenuBounds(x=0, y=0, width=2500, height=843),
-        action=URIAction(label='Go to line.me', uri='https://line.me'))]
-)
-rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
-rich_menu = line_bot_api.get_rich_menu(rich_menu_id)
+headers = {"Authorization":"Bearer 6yNy7TqSZDYbYo98fd2M0nZ9tMyXxaeQvtKMWo/+YOroOUwM0ghQgAHqRrDDEwxJ7XvCG2FS/+k4yNev17o5vQFlgQw8qT8rmA6j/us4lw6kHECLAzT/CaboZbTYqumbFnfHMoEWOXVXpeJcP0FiUwdB04t89/1O/w1cDnyilFU=","Content-Type":"application/json"}
+
+body = {
+    "size": {"width": 2500, "height": 1686},
+    "selected": "true",
+    "name": "Controller",
+    "chatBarText": "Controller",
+    "areas":[
+        {
+          "bounds": {"x": 551, "y": 325, "width": 321, "height": 321},
+          "action": {"type": "message", "text": "up"}
+        },
+        {
+          "bounds": {"x": 876, "y": 651, "width": 321, "height": 321},
+          "action": {"type": "message", "text": "right"}
+        },
+        {
+          "bounds": {"x": 551, "y": 972, "width": 321, "height": 321},
+          "action": {"type": "message", "text": "down"}
+        },
+        {
+          "bounds": {"x": 225, "y": 651, "width": 321, "height": 321},
+          "action": {"type": "message", "text": "left"}
+        },
+        {
+          "bounds": {"x": 1433, "y": 657, "width": 367, "height": 367},
+          "action": {"type": "message", "text": "btn b"}
+        },
+        {
+          "bounds": {"x": 1907, "y": 657, "width": 367, "height": 367},
+          "action": {"type": "message", "text": "btn a"}
+        }
+    ]
+  }
+
+
+req = requests.request('POST', 'https://api.line.me/v2/bot/richmenu/richmenu-1805df5927cedafd9412fe6c2bfdefa0', 
+                       headers=headers,data=json.dumps(body).encode('utf-8'))
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
