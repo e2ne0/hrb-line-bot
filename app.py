@@ -48,6 +48,12 @@ def handle_message(event):
     if event.message.text == '線上真人諮詢':
         line_bot_api.reply_message(event.reply_token, onlineHumanContact())
 
+    if event.message.text == '我的履歷':
+        line_bot_api.reply_message(event.reply_token, myResume())
+
+    if event.message.text == '瀏覽履歷庫':
+        line_bot_api.reply_message(event.reply_token, viewMyResume())
+
 def follow():
     message = TemplateSendMessage(
         alt_text='Carousel template',
@@ -162,6 +168,56 @@ def onlineHumanContact():
     message = TextSendMessage('後台建置中...\n稍待片刻，將由相關人士與您聯絡')
     return message
 
+def myResume():
+    message = CarouselColumn(
+        title='我的履歷',
+        text='選擇新增一份律例或挑選現有的履歷',
+        actions=[
+            URIAction(
+                label='新增新的一份履歷',
+                uri='https://linebot-human-resource.netlify.com/create-resume'
+            ),
+            MessageAction(
+                label='瀏覽履歷庫',
+                text='瀏覽履歷庫'
+            ),
+        ]
+    )
+    return message
+
+def viewMyResume():
+    message = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                    title='履歷1',
+                    text='Lorem lpsum is simply dummy test',
+                    actions=URIAction(
+                        label='編輯履歷',
+                        uri='https://linebot-human-resource.netlify.com/create-resume'
+                        )
+                    ),
+                CarouselColumn(
+                    title='履歷2',
+                    text='Lorem lpsum is simply dummy test',
+                    actions=URIAction(
+                        label='編輯履歷',
+                        uri='https://linebot-human-resource.netlify.com/create-resume'
+                    )
+                ),
+                CarouselColumn(
+                    title='履歷3',
+                    text='Lorem lpsum is simply dummy test',
+                    actions=URIAction(
+                        label='編輯履歷',
+                        uri='https://linebot-human-resource.netlify.com/create-resume'
+                    )
+                )
+            ]
+        )
+    )
+    return message
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
