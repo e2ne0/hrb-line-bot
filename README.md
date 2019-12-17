@@ -1,8 +1,4 @@
-# hrb-line-bot
-
-
-Line bot 
-===
+# hrb-line-bot(Line bot)
 
 ## Create Rich menu
 
