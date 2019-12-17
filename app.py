@@ -9,8 +9,6 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-import requests
-import json
 
 
 app = Flask(__name__)
@@ -20,45 +18,6 @@ line_bot_api = LineBotApi(
     '6yNy7TqSZDYbYo98fd2M0nZ9tMyXxaeQvtKMWo/+YOroOUwM0ghQgAHqRrDDEwxJ7XvCG2FS/+k4yNev17o5vQFlgQw8qT8rmA6j/us4lw6kHECLAzT/CaboZbTYqumbFnfHMoEWOXVXpeJcP0FiUwdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('b28c6adb66067dad7c87c7853cfb32ea')
-
-headers = {"Authorization":"Bearer 6yNy7TqSZDYbYo98fd2M0nZ9tMyXxaeQvtKMWo/+YOroOUwM0ghQgAHqRrDDEwxJ7XvCG2FS/+k4yNev17o5vQFlgQw8qT8rmA6j/us4lw6kHECLAzT/CaboZbTYqumbFnfHMoEWOXVXpeJcP0FiUwdB04t89/1O/w1cDnyilFU=","Content-Type":"application/json"}
-
-body = {
-    "size": {"width": 2500, "height": 1686},
-    "selected": "true",
-    "name": "Controller",
-    "chatBarText": "Controller",
-    "areas":[
-        {
-          "bounds": {"x": 551, "y": 325, "width": 321, "height": 321},
-          "action": {"type": "message", "text": "up"}
-        },
-        {
-          "bounds": {"x": 876, "y": 651, "width": 321, "height": 321},
-          "action": {"type": "message", "text": "right"}
-        },
-        {
-          "bounds": {"x": 551, "y": 972, "width": 321, "height": 321},
-          "action": {"type": "message", "text": "down"}
-        },
-        {
-          "bounds": {"x": 225, "y": 651, "width": 321, "height": 321},
-          "action": {"type": "message", "text": "left"}
-        },
-        {
-          "bounds": {"x": 1433, "y": 657, "width": 367, "height": 367},
-          "action": {"type": "message", "text": "btn b"}
-        },
-        {
-          "bounds": {"x": 1907, "y": 657, "width": 367, "height": 367},
-          "action": {"type": "message", "text": "btn a"}
-        }
-    ]
-  }
-
-
-req = requests.request('POST', 'https://api.line.me/v2/bot/richmenu/richmenu-1805df5927cedafd9412fe6c2bfdefa0', 
-                       headers=headers,data=json.dumps(body).encode('utf-8'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
