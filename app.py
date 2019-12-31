@@ -230,8 +230,8 @@ def viewMyResume():
 def testFlex():
     message = FlexSendMessage(
         alt_text='有一個重要職缺通知',
-        contents=BubbleContainer(
-            "type: "bubble",
+        contents={
+            "type": "bubble",
             "body": {
                 "type": "box",
                 "layout": "vertical",
@@ -307,7 +307,9 @@ def testFlex():
                 "spacing": "sm",
                 "margin": "xl"
             }
-        )
+        }
+            
+        
     return message
 
 if __name__ == "__main__":
