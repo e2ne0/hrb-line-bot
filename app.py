@@ -233,11 +233,11 @@ def testFlex():
         contents=BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
-                url='https://example.com/cafe.jpg',
+                url='https://i.imgur.com/a8MmG2i.png',
                 size='full',
-                aspect_ratio='20:13',
+                aspect_ratio='1:1',
                 aspect_mode='cover',
-                action=URIAction(uri='http://example.com', label='label')
+                action=URIAction(uri='https://imgur.com/gallery/a8MmG2i', label='label')
             )
         )
     )
