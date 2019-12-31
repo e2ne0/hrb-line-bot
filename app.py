@@ -298,16 +298,16 @@ def testFlex():
                     "style": "primary",
                     "color": "#905c44",
                     "action": {
-                        "type": "uri",
-                        "label": "我有好友",
-                        "uri": "https://linecorp.com"
+                    "type": "uri",
+                    "label": "我有好友",
+                    "uri": "https://linecorp.com"
                     }
                 }
                 ],
                 "spacing": "sm",
                 "margin": "xl"
             }
-        }
+}
     )
     return message
 
