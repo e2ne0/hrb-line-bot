@@ -50,6 +50,9 @@ def handle_message(event):
     if event.message.text == '瀏覽履歷庫':
         line_bot_api.reply_message(event.reply_token, viewMyResume())
 
+    if event.message.text == 'testflex':
+        line_bot_api.reply_message(event.reply_token, testFlex())
+
 def follow():
     message = TemplateSendMessage(
         alt_text='Carousel template',
@@ -220,6 +223,22 @@ def viewMyResume():
 					]
                 )
             ]
+        )
+    )
+    return message
+
+def testFlex():
+    message = FlexSendMessage(
+        alt_text='hello',
+        contents=BubbleContainer(
+            direction='ltr',
+            hero=ImageComponent(
+                url='https://example.com/cafe.jpg',
+                size='full',
+                aspect_ratio='20:13',
+                aspect_mode='cover',
+                action=URIAction(uri='http://example.com', label='label')
+            )
         )
     )
     return message
