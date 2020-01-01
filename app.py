@@ -307,7 +307,7 @@ def testFlex():
                 "spacing": "sm",
                 "margin": "xl"
             }
-}
+        }
     )
     return message
 
