@@ -230,84 +230,71 @@ def viewMyResume():
 def testFlex():
     message = FlexSendMessage(
         alt_text='有一個重要職缺通知',
-        contents={
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                    {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                        {
-                            "type": "image",
-                            "url": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201912250718",
-                            "aspectMode": "cover",
-                            "size": "full"
-                        }
+        contents=BubbleContainer(
+            body=BoxComponent(
+                layout='vertical',
+                contents=[
+                    BoxComponent(
+                        layout='horizontal',
+                        contents=[
+                            BoxComponent(
+                                layout='vertical',
+                                contents=[
+                                    ImageComponent(
+                                        url='https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201912250718',
+                                        aspect_mode='cover',
+                                        size='full'
+                                    )
+                                ],
+                                corner_radius='100px',
+                                width='100px',
+                                height='100px'
+                            ),
+                            BoxComponent(
+                                layout='vertical',
+                                contents=[
+                                    TextComponent(
+                                        contents=[
+                                            SpanComponent(
+                                                text='Apple',
+                                                weight='bold',
+                                                color='#000000'
+                                            ),
+                                            SpanComponent(
+                                                text='     '
+                                            ),
+                                            SpanComponent(
+                                                text='徵求熟悉Swift Metal Library之人才'
+                                            )
+                                        ],
+                                        size='sm',
+                                        wrap=True
+                                    )
+                                ]
+                            )
                         ],
-                        "cornerRadius": "100px",
-                        "width": "100px",
-                        "height": "100px"
-                    },
-                    {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                        {
-                            "type": "text",
-                            "contents": [
-                            {
-                                "type": "span",
-                                "text": "Apple",
-                                "weight": "bold",
-                                "color": "#000000"
-                            },
-                            {
-                                "type": "span",
-                                "text": "     "
-                            },
-                            {
-                                "type": "span",
-                                "text": "徵求熟悉Swift Metal Library之人才"
-                            }
-                            ],
-                            "size": "sm",
-                            "wrap": "true"
-                        }
-                        ]
-                    }
-                    ],
-                    "spacing": "xl",
-                    "paddingAll": "20px"
-                }
+                        spacing='xl',
+                        padding_all='20px'
+                    )
                 ],
-                "paddingAll": "0px"
-            },
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                {
-                    "type": "button",
-                    "style": "primary",
-                    "color": "#905c44",
-                    "action": {
-                    "type": "uri",
-                    "label": "我有好友",
-                    "uri": "https://linecorp.com"
-                    }
-                }
+                padding_all='0px'
+            ),
+            footer=BoxComponent(
+                layout='vertical',
+                contents=[
+                    ButtonComponent(
+                        style='primary',
+                        color='#905c44',
+                        action=URIAction(
+                            label='我有好友',
+                            uri='https://linecorp.com'
+                        )
+                    )
                 ],
-                "spacing": "sm",
-                "margin": "xl"
-            }
-        }
+                spacing='sm',
+                margin='xl'
+            )
+        )
     )
     return message
 
