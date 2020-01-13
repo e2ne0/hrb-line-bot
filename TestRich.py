@@ -19,7 +19,7 @@ body = {
         },
         {
           "bounds": {"x": 1666, "y": 0, "width": 834, "height": 843},
-          "action": {"type": "message", "text": "搜尋職缺"}
+          "action": {"type": "uri", "uri": "https://linebot-human-resource.netlify.com/search-requisition"}
         },
         {
           "bounds": {"x": 0, "y": 843, "width": 833, "height": 843},

@@ -301,7 +301,7 @@ def testFlex():
     return message
 
 def testRich(user_id):
-    line_bot_api.link_rich_menu_to_user(user_id, "richmenu-c6ead2add66e84cb6551b76791612e41")
+    line_bot_api.link_rich_menu_to_user(user_id, "richmenu-8a5d727213235686e76240ed2ebecc8e")
 
 
 if __name__ == "__main__":
