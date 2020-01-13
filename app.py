@@ -9,8 +9,6 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-
-
 app = Flask(__name__)
 
 # Channel Access Token
@@ -38,7 +36,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text == '追蹤中職缺':
+    if event.message.text == '收藏職缺':
         line_bot_api.reply_message(event.reply_token, follow())
     
     if event.message.text == '線上真人諮詢':
@@ -50,8 +48,12 @@ def handle_message(event):
     if event.message.text == '瀏覽履歷庫':
         line_bot_api.reply_message(event.reply_token, viewMyResume())
 
-    if event.message.text == 'testflex':
+    if event.message.text == '最新職缺':
         line_bot_api.reply_message(event.reply_token, testFlex())
+
+    if event.message.text == 'testrich':
+        testRich(event.source.user_id)
+    
 
 def follow():
     message = TemplateSendMessage(
@@ -297,6 +299,10 @@ def testFlex():
         )
     )
     return message
+
+def testRich(user_id):
+    line_bot_api.link_rich_menu_to_user(user_id, "richmenu-c6ead2add66e84cb6551b76791612e41")
+
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
