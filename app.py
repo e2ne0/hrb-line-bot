@@ -37,6 +37,7 @@ def callback():
 @handler.add(PostbackEvent)
 def handle_postback(event):
     d = event.postback.data
+    print(d[d.find('action')+len('action'):d.rfind('&')])
     if d[d.find('action')+len('action'):d.rfind('&')] == 'follow':
         cFollow()
 
