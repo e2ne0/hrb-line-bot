@@ -72,9 +72,9 @@ def handle_message(event):
 def followText(num):
     global f
     if f[num]:
-        return '\n(追蹤中)'
+        return ['\n(追蹤中)','取消追蹤']
     else:
-        return ''
+        return ['','追蹤']
 
 
 def follow():
@@ -85,7 +85,7 @@ def follow():
                 CarouselColumn(
                     title='誠徵java工程師1名',
 
-                    text='地點：捷運市政府站附近'+followText(0),
+                    text='地點：捷運市政府站附近'+followText(0)[0],
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -97,14 +97,14 @@ def follow():
                             text='線上真人諮詢'
                         ),
                         PostbackAction(
-                            label='取消追蹤',
+                            label=followText(1)[1],
                             data='action=follow&itemid=0'
                         ),
                     ]
                 ),
                 CarouselColumn(
                     title='誠徵 資深半導體工程師',
-                    text='地點：桃園觀音'+followText(1),
+                    text='地點：桃園觀音'+followText(1)[0],
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -116,14 +116,14 @@ def follow():
                             text='線上真人諮詢'
                         ),
                         PostbackAction(
-                            label='取消追蹤',
+                            label=followText(1)[1],
                             data='action=follow&itemid=1'
                         ),
                     ]
                 ),
                 CarouselColumn(
                     title='誠徵 資深半自動工程師',
-                    text='地點：信義101'+followText(2),
+                    text='地點：信義101'+followText(2)[0],
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -135,14 +135,14 @@ def follow():
                             text='線上真人諮詢'
                         ),
                         PostbackAction(
-                            label='取消追蹤',
+                            label=followText(2)[1],
                             data='action=follow&itemid=2'
                         ),
                     ]
                 ),
                 CarouselColumn(
                     title='誠徵 資深java軟體工程師',
-                    text='地點：松山區'+followText(3),
+                    text='地點：松山區'+followText(3)[0],
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -154,14 +154,14 @@ def follow():
                             text='線上真人諮詢'
                         ),
                         PostbackAction(
-                            label='取消追蹤',
+                            label=followText(3)[1],
                             data='action=follow&itemid=3'
                         ),
                     ]
                 ),
                 CarouselColumn(
                     title='誠徵 網路管理員',
-                    text='地點：新北市'+followText(4),
+                    text='地點：新北市'+followText(4)[0],
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -173,7 +173,7 @@ def follow():
                             text='線上真人諮詢'
                         ),
                         PostbackAction(
-                            label='取消追蹤',
+                            label=followText(4)[1],
                             data='action=follow&itemid=4'
                         ),
                     ]
