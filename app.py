@@ -42,7 +42,7 @@ def handle_postback(event):
 
 def cFollow():
     d = event.postback.data
-    num = (int)d[d.find('itemid=')+len('itemid='):d[-1]]
+    num = int(d[d.find('itemid=')+len('itemid='):d[-1]])
     global f
     f[num] = f[num]
     line_bot_api.reply_message(event.reply_token, follow())
