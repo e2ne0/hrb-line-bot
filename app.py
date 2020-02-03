@@ -16,6 +16,8 @@ line_bot_api = LineBotApi(
 # Channel Secret
 handler = WebhookHandler('b28c6adb66067dad7c87c7853cfb32ea')
 
+f = [True,True,True,False,False]
+
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -54,6 +56,15 @@ def handle_message(event):
         testRich(event.source.user_id)
     
 
+
+def followText(num):
+    global f
+    if f[num]:
+        return '\n(追蹤中)'
+    else:
+        return ''
+
+
 def follow():
     message = TemplateSendMessage(
         alt_text='Carousel template',
@@ -61,7 +72,8 @@ def follow():
             columns=[
                 CarouselColumn(
                     title='誠徵java工程師1名',
-                    text='地點：捷運市政府站附近\n（追蹤中）',
+
+                    text='地點：捷運市政府站附近'+followText(0),
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -81,7 +93,7 @@ def follow():
                 ),
                 CarouselColumn(
                     title='誠徵 資深半導體工程師',
-                    text='地點：桃園觀音\n（追蹤中）',
+                    text='地點：桃園觀音'+followText(1),
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -101,7 +113,7 @@ def follow():
                 ),
                 CarouselColumn(
                     title='誠徵 資深半自動工程師',
-                    text='地點：信義101\n（FA聯繫中）',
+                    text='地點：信義101'+followText(2),
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -121,7 +133,7 @@ def follow():
                 ),
                 CarouselColumn(
                     title='誠徵 資深java軟體工程師',
-                    text='地點：松山區',
+                    text='地點：松山區'+followText(3),
                     actions=[
                         PostbackAction(
                             label='直接應徵',
@@ -141,7 +153,7 @@ def follow():
                 ),
                 CarouselColumn(
                     title='誠徵 網路管理員',
-                    text='地點：新北市',
+                    text='地點：新北市'+followText(4),
                     actions=[
                         PostbackAction(
                             label='直接應徵',
