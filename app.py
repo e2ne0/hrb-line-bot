@@ -44,7 +44,27 @@ def handle_postback(event):
         num = int(d.split('itemid=')[1])
         global f
         f[num] = not f[num]
-        line_bot_api.reply_message(event.reply_token, follow())
+        if f[num] == False:
+            line_bot_api.reply_message(event.reply_token, unfollow(d))
+    
+def unfollow(mydata = None):
+    message = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                    title='已取消追蹤',
+                    actions=[
+                        PostbackAction(
+                            label=followText(0)[1],
+                            data='action=follow&itemid='+mydata.split('itemid=')[1]
+                        )
+                    ]
+                )
+            ]
+        )
+    )
+    return message
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -74,7 +94,7 @@ def followText(num):
     if f[num]:
         return ['\n(追蹤中)','取消追蹤']
     else:
-        return ['','追蹤']
+        return ['','重新追蹤']
 
 
 def follow():
