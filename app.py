@@ -33,19 +33,18 @@ def callback():
         abort(400)
     return 'OK'
 
+d = ''
 #handle postback
 @handler.add(PostbackEvent)
+
 def handle_postback(event):
+
     d = event.postback.data
     if d[d.find('action=')+len('action='):d.rfind('&')] == 'follow':
-        cFollow()
-
-def cFollow():
-    d = event.postback.data
-    num = int(d[d.find('itemid=')+len('itemid='):d[-1]])
-    global f
-    f[num] = f[num]
-    line_bot_api.reply_message(event.reply_token, follow())
+        num = int(d[d.find('itemid=')+len('itemid='):d[-1]])
+        global f
+        f[num] = f[num]
+        line_bot_api.reply_message(event.reply_token, follow())
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
