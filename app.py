@@ -36,7 +36,12 @@ def callback():
 #handle postback
 @handler.add(PostbackEvent)
 def handle_postback(event):
-    print(event.postback.data[-1])
+    d = event.postback.data
+    if d[d.find('action')+len('action'):d.rfind('&')] == 'follow':
+        cFollow()
+
+def cFollow():
+    print('hi')
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
