@@ -33,6 +33,10 @@ def callback():
         abort(400)
     return 'OK'
 
+#handle postback
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    print('get')
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -78,7 +82,7 @@ def follow():
                         PostbackAction(
                             label='直接應徵',
                             display_text='履歷投遞...',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=111'
                         ),
                         MessageAction(
                             label='線上真人諮詢',
@@ -87,7 +91,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=0'
                         ),
                     ]
                 ),
@@ -98,7 +102,7 @@ def follow():
                         PostbackAction(
                             label='直接應徵',
                             display_text='履歷投遞...',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=111'
                         ),
                         MessageAction(
                             label='線上真人諮詢',
@@ -118,7 +122,7 @@ def follow():
                         PostbackAction(
                             label='直接應徵',
                             display_text='履歷投遞...',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=111'
                         ),
                         MessageAction(
                             label='線上真人諮詢',
@@ -127,7 +131,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=2'
                         ),
                     ]
                 ),
@@ -138,7 +142,7 @@ def follow():
                         PostbackAction(
                             label='直接應徵',
                             display_text='履歷投遞...',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=111'
                         ),
                         MessageAction(
                             label='線上真人諮詢',
@@ -147,7 +151,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=3'
                         ),
                     ]
                 ),
@@ -158,7 +162,7 @@ def follow():
                         PostbackAction(
                             label='直接應徵',
                             display_text='履歷投遞...',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=111'
                         ),
                         MessageAction(
                             label='線上真人諮詢',
@@ -167,7 +171,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=1'
+                            data='action=buy&itemid=4'
                         ),
                     ]
                 ),
