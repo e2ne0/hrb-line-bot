@@ -98,7 +98,6 @@ def follow():
                         ),
                         PostbackAction(
                             label='取消追蹤',
-                            display_text='取消追蹤',
                             data='action=follow&itemid=0'
                         ),
                     ]
@@ -118,7 +117,6 @@ def follow():
                         ),
                         PostbackAction(
                             label='取消追蹤',
-                            display_text='取消追蹤',
                             data='action=follow&itemid=1'
                         ),
                     ]
@@ -138,7 +136,6 @@ def follow():
                         ),
                         PostbackAction(
                             label='取消追蹤',
-                            display_text='取消追蹤',
                             data='action=follow&itemid=2'
                         ),
                     ]
@@ -158,7 +155,6 @@ def follow():
                         ),
                         PostbackAction(
                             label='取消追蹤',
-                            display_text='取消追蹤',
                             data='action=follow&itemid=3'
                         ),
                     ]
@@ -178,7 +174,6 @@ def follow():
                         ),
                         PostbackAction(
                             label='取消追蹤',
-                            display_text='取消追蹤',
                             data='action=follow&itemid=4'
                         ),
                     ]
