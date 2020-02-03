@@ -97,7 +97,7 @@ def follow():
                             text='線上真人諮詢'
                         ),
                         PostbackAction(
-                            label=followText(1)[1],
+                            label=followText(0)[1],
                             data='action=follow&itemid=0'
                         ),
                     ]
