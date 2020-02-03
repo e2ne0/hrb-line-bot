@@ -36,7 +36,7 @@ def callback():
 #handle postback
 @handler.add(PostbackEvent)
 def handle_postback(event):
-    print(event.postback.data)
+    print(event.postback.data[-1])
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -91,7 +91,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=0'
+                            data='action=follow&itemid=0'
                         ),
                     ]
                 ),
@@ -111,7 +111,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=1'
+                            data='action=follow&itemid=1'
                         ),
                     ]
                 ),
@@ -131,7 +131,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=2'
+                            data='action=follow&itemid=2'
                         ),
                     ]
                 ),
@@ -151,7 +151,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=3'
+                            data='action=follow&itemid=3'
                         ),
                     ]
                 ),
@@ -171,7 +171,7 @@ def follow():
                         PostbackAction(
                             label='取消追蹤',
                             display_text='取消追蹤',
-                            data='action=buy&itemid=4'
+                            data='action=follow&itemid=4'
                         ),
                     ]
                 ),
