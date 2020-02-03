@@ -43,7 +43,7 @@ def handle_postback(event):
     if d[d.find('action=')+len('action='):d.rfind('&')] == 'follow':
         num = int(d[d.find('itemid=')+len('itemid='):d[-1]])
         global f
-        f[num] = f[num]
+        f[num] = not f[num]
         line_bot_api.reply_message(event.reply_token, follow())
 
 # 處理訊息
