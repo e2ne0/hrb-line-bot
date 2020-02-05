@@ -57,7 +57,7 @@ def unfollow(mydata = None):
             actions=[
                 PostbackAction(
                     label=followText(0)[1],
-                    data='action=follow&itemid='#+mydata.split('itemid=')[1]
+                    data=mydata
                 ),
             ]
         )
