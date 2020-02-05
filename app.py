@@ -54,6 +54,7 @@ def unfollow(mydata = None):
             columns=[
                 CarouselColumn(
                     title='已取消追蹤',
+                    text='',
                     actions=[
                         PostbackAction(
                             label=followText(0)[1],
