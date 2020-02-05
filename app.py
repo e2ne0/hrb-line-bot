@@ -49,21 +49,20 @@ def handle_postback(event):
             unfollow(d)
     
 def unfollow(mydata = None):
-    # message = TemplateSendMessage(
-    #     alt_text='Carousel template',
-    #     template=ButtonsTemplate(
-    #         title='已取消追蹤',
-    #         text='',
-    #         actions=[
-    #             PostbackAction(
-    #                 label=followText(0)[1],
-    #                 data='action=follow&itemid='#+mydata.split('itemid=')[1]
-    #             ),
-    #         ]
-    #     )
-    # )
-    # return message
-    print(mydata)
+    message = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=ButtonsTemplate(
+            title='已取消追蹤',
+            text='\n',
+            actions=[
+                PostbackAction(
+                    label=followText(0)[1],
+                    data='action=follow&itemid='#+mydata.split('itemid=')[1]
+                ),
+            ]
+        )
+    )
+    return message
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
