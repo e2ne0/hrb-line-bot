@@ -45,8 +45,7 @@ def handle_postback(event):
         global f
         f[num] = not f[num]
         if f[num] == False:
-            # line_bot_api.reply_message(event.reply_token, unfollow(d))
-            unfollow(d)
+            line_bot_api.reply_message(event.reply_token, unfollow(d))
     
 def unfollow(mydata = None):
     message = TemplateSendMessage(
