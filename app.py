@@ -52,7 +52,7 @@ def unfollow(mydata = None):
         alt_text='Carousel template',
         template=ButtonsTemplate(
             title='已取消追蹤',
-            text='',
+            text='\n',
             actions=[
                 PostbackAction(
                     label=followText(0)[1],
