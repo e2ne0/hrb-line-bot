@@ -50,17 +50,13 @@ def handle_postback(event):
 def unfollow(mydata = None):
     message = TemplateSendMessage(
         alt_text='Carousel template',
-        template=CarouselTemplate(
-            columns=[
-                CarouselColumn(
-                    title='已取消追蹤',
-                    text='',
-                    actions=[
-                        PostbackAction(
-                            label=followText(0)[1],
-                            data='action=follow&itemid='#+mydata.split('itemid=')[1]
-                        ),
-                    ]
+        template=ButtonsTemplate(
+            title='已取消追蹤',
+            text='',
+            actions=[
+                PostbackAction(
+                    label=followText(0)[1],
+                    data='action=follow&itemid='#+mydata.split('itemid=')[1]
                 ),
             ]
         )
