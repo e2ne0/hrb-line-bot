@@ -45,23 +45,25 @@ def handle_postback(event):
         global f
         f[num] = not f[num]
         if f[num] == False:
-            line_bot_api.reply_message(event.reply_token, unfollow(d))
+            # line_bot_api.reply_message(event.reply_token, unfollow(d))
+            unfollow(d)
     
 def unfollow(mydata = None):
-    message = TemplateSendMessage(
-        alt_text='Carousel template',
-        template=ButtonsTemplate(
-            title='已取消追蹤',
-            text='',
-            actions=[
-                PostbackAction(
-                    label=followText(0)[1],
-                    data='action=follow&itemid='#+mydata.split('itemid=')[1]
-                ),
-            ]
-        )
-    )
-    return message
+    # message = TemplateSendMessage(
+    #     alt_text='Carousel template',
+    #     template=ButtonsTemplate(
+    #         title='已取消追蹤',
+    #         text='',
+    #         actions=[
+    #             PostbackAction(
+    #                 label=followText(0)[1],
+    #                 data='action=follow&itemid='#+mydata.split('itemid=')[1]
+    #             ),
+    #         ]
+    #     )
+    # )
+    # return message
+    print(mydata)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
