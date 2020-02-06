@@ -55,7 +55,7 @@ def unfollow(mydata = None):
             text='\n',
             actions=[
                 PostbackAction(
-                    label=followText(0)[1],
+                    label='Undo',
                     data=mydata
                 ),
             ]
@@ -106,7 +106,6 @@ def follow():
                     actions=[
                         PostbackAction(
                             label='直接應徵',
-                            display_text='履歷投遞...',
                             data='action=buy&itemid=111'
                         ),
                         MessageAction(
@@ -125,7 +124,6 @@ def follow():
                     actions=[
                         PostbackAction(
                             label='直接應徵',
-                            display_text='履歷投遞...',
                             data='action=buy&itemid=111'
                         ),
                         MessageAction(
@@ -144,7 +142,6 @@ def follow():
                     actions=[
                         PostbackAction(
                             label='直接應徵',
-                            display_text='履歷投遞...',
                             data='action=buy&itemid=111'
                         ),
                         MessageAction(
@@ -163,7 +160,6 @@ def follow():
                     actions=[
                         PostbackAction(
                             label='直接應徵',
-                            display_text='履歷投遞...',
                             data='action=buy&itemid=111'
                         ),
                         MessageAction(

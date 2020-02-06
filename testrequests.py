@@ -1,4 +1,11 @@
-import urllib.request, json
-url = urllib.request.urlopen("http://127.0.0.1:5000")
-data = json.loads(url.read())
-print(data[0]['city_name'])
+import urllib.request, json, requests
+# print(data)
+# data[2]['id'] = None
+# payload = data[2]
+# data = {
+# 	"id": "a03"
+# }
+headers = {'Content-Type':'application/json'}
+# print(json.dumps(payload))
+# response = requests.post('https://webtask.azurewebsites.net/api/employees/', json.dumps(data),headers=headers)
+response = requests.delete('https://webtask.azurewebsites.net/api/employees/a03',headers=headers)
